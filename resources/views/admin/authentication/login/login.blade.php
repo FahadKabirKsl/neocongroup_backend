@@ -2,7 +2,7 @@
 
 @push('css')
 @endpush
-@section('title','Login-Admin Panel')
+@section('title', 'Login-Admin Panel')
 @section('content')
     <section>
         <div class="container-fluid p-0">
@@ -11,7 +11,11 @@
                     <div class="login-card">
                         <form method="POST" action="{{ route('login') }}" class="theme-form login-form">
                             @csrf
-                            <h4>Login</h4>
+                            <div class="d-flex justify-content-center"><a href="{{ route('dashboard') }}"><img
+                                        class="img-fluid" src="{{ asset('assets/images/dashboard/neocon_group.svg') }}"
+                                        alt=""></a>
+                            </div>
+                            <h5 class="py-2">Login</h5>
                             <h6>Welcome back! Log in to your account.</h6>
 
                             <!-- Email Address -->
