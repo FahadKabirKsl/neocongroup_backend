@@ -36,71 +36,12 @@
                     </li>
                     {{-- <li class="sidebar-main-title">
                     </li> --}}
-
-                    {{-- blog --}}
-                    {{-- <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="airplay"></i><span>Blog</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('blog.create')}}" class="#">Create Blog</a></li>
-                            <li><a href="{{route('blog.index')}}" class="#">List of Blog</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="airplay"></i><span>Digital Booth</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('booth.create')}}" class="#">Create Digital Booth</a></li>
-                            <li><a href="{{route('booth.index')}}" class="#">List of Digital Booth</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="airplay"></i><span>Branch</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('branch.create')}}" class="#">Create Branch</a></li>
-                            <li><a href="{{route('branch.index')}}" class="#">List of Branch</a></li>
-                        </ul>
-                    </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title " href="javascript:void(0)"><i
                                 data-feather="airplay"></i><span>Employee</span></a>
                         <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('employee.create')}}" class="#">Create Employee</a></li>
-                            <li><a href="{{route('employee.index')}}" class="#">List of Employee</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="airplay"></i><span>IPO</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('ipo.create')}}" class="#">Create IPOs</a></li>
-                            <li><a href="{{route('ipo.index')}}" class="#">List of IPOs</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="airplay"></i><span>Media</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('media.create')}}" class="#">Create Media</a></li>
-                            <li><a href="{{route('media.index')}}" class="#">List of Media</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="airplay"></i><span>Partner</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="{{route('partner.create')}}" class="#">Create Partner</a></li>
-                            <li><a href="{{route('partner.index')}}" class="#">List of Partner</a></li>
-                        </ul>
-                    </li> --}}
-                    {{-- user --}}
-                    <li class="dropdown">
-                        <a class="nav-link menu-title " href="javascript:void(0)"><i
-                                data-feather="user"></i><span>User</span></a>
-                        <ul class="nav-submenu menu-content" style="display: none;">
-                            <li><a href="#" class="#">Create User</a></li>
-                            <li><a href="#" class="#">List of User</a></li>
+                            <li><a href="{{ route('employee.create') }}" class="#">Create Employee</a></li>
+                            <li><a href="{{ route('employee.index') }}" class="#">List of Employee</a></li>
                         </ul>
                     </li>
                 </ul>

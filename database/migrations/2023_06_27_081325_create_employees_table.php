@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image');
             $table->enum('type', ['director', 'management_team']);
             $table->string('designation');
+            $table->string('name');
+            $table->string('image');
+            $table->text('heading')->nullable();
+            $table->text('message')->nullable();
             $table->longText('about');
             $table->timestamps();
         });
