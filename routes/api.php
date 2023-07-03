@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\NewsController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('/registration', [AuthController::class, 'registration']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+
+//news
+Route::prefix('news')->group(function () {
+    Route::get('/', [NewsController::class, 'index']);
+    Route::get('/create', [NewsController::class, 'create']);
+    Route::post('/store', [NewsController::class, 'store']);
+    Route::post('/{id}', [NewsController::class, 'update']);
+    Route::delete('/delete/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+});
