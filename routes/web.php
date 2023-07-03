@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\EmployeeController;
+use App\Http\Controllers\dashboard\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/{id}/edit', [EmployeeController::class, 'edit'])->name('employee.edit');
         Route::put('/{id}', [EmployeeController::class, 'update'])->name('employee.update');
         Route::delete('/delete/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+    });
+    //news
+    Route::prefix('news')->group(function () {
+        Route::get('index', [NewsController::class, 'index'])->name('news.index');
+        Route::get('create', [NewsController::class, 'create'])->name('news.create');
+        Route::post('store', [NewsController::class, 'store'])->name('news.store');
+        Route::get('/{id}/edit', [NewsController::class, 'edit'])->name('news.edit');
+        Route::put('/{id}', [NewsController::class, 'update'])->name('news.update');
+        Route::delete('/delete/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
     });
 });
 Route::middleware('auth')->group(function () {
