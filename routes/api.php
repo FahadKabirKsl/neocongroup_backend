@@ -31,5 +31,5 @@ Route::prefix('news')->group(function () {
     Route::get('/create', [NewsController::class, 'create']);
     Route::post('/store', [NewsController::class, 'store']);
     Route::post('/{id}', [NewsController::class, 'update']);
-    Route::delete('/delete/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+    Route::delete('/delete/{id}', [NewsController::class, 'destroy']);
 });
