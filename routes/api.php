@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\NewsController;
 use App\Http\Controllers\api\ContactController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
@@ -28,4 +29,13 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index']);
     Route::post('/store', [ContactController::class, 'store']);
+});
+
+//news
+Route::prefix('news')->group(function () {
+    Route::get('/', [NewsController::class, 'index']);
+    Route::get('/create', [NewsController::class, 'create']);
+    Route::post('/store', [NewsController::class, 'store']);
+    Route::post('/{id}', [NewsController::class, 'update']);
+    Route::delete('/delete/{id}', [NewsController::class, 'destroy']);
 });
