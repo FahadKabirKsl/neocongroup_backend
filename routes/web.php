@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\ContactController;
 use App\Http\Controllers\dashboard\EmployeeController;
 use App\Http\Controllers\dashboard\NewsController;
 use App\Http\Controllers\ProfileController;
@@ -23,7 +24,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('layouts.dashboard.master');
     })->middleware(['auth', 'verified'])->name('dashboard');
-
+    //contact
+    Route::prefix('contact')->group(function () {
+        Route::get('/create', [ContactController::class, 'create'])->name('contact.create');
+        Route::get('/index', [ContactController::class, 'index'])->name('contact.index');
+        Route::post('/store', [ContactController::class, 'store'])->name('contact.store');
+    });
     //employee
     Route::prefix('employee')->group(function () {
         Route::get('/index', [EmployeeController::class, 'index'])->name('employee.index');
