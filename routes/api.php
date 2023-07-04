@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\EmployeeController;
 use App\Http\Controllers\api\NewsController;
 use App\Http\Controllers\api\ContactController;
 use App\Http\Controllers\AuthController;
@@ -29,6 +30,13 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index']);
     Route::post('/store', [ContactController::class, 'store']);
+});
+//employee
+Route::prefix('employee')->group(function () {
+    Route::get('/', [EmployeeController::class, 'index']);
+    Route::post('/store', [EmployeeController::class, 'store']);
+    Route::post('/{id}', [EmployeeController::class, 'update']);
+    Route::delete('/delete/{id}', [EmployeeController::class, 'destroy']);
 });
 
 //news
