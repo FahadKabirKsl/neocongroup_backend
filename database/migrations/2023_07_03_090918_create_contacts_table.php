@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phoneNumber')->unique();
+            $table->string('email');
+            $table->string('phoneNumber');
             $table->enum('inquiry', ['innovations', 'technologies', 'gateway', 'ksl']);
             $table->longText('reason')->nullable();
             $table->timestamps();
