@@ -22,7 +22,7 @@
                             method="POST">
                             @csrf
                             @method('put')
-                            <div class="row mb-4">
+                            {{-- <div class="row mb-4">
                                 <div class="col">
                                     <x-input-label class="form-label" for="type" :value="__('Type')" />
                                     <select class="form-control btn btn-orange" id="type" name="type">
@@ -37,6 +37,13 @@
                                         <option value="gateway" {{ $news->type == 'gateway' ? 'selected' : '' }}>gateway
                                         </option>
                                     </select>
+                                </div>
+                            </div> --}}
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <x-input-label class="form-label" for="tags" :value="__('Tags')" />
+                                    <input class="form-control" id="tags" name="tags"
+                                        placeholder="Enter tags here..." value="{{ old('tags', $news->tags) }}" />
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -56,10 +63,15 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col">
+                                <div class="col-sm-6">
                                     <x-input-label class="form-label" for="title" :value="__('Title')" />
                                     <x-text-input class="form-control" id="title" type="text"
                                         placeholder="Enter your title here..." value="{{ $news->title }}" name="title" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <x-input-label class="form-label" for="link" :value="__('Link')" />
+                                    <x-text-input class="form-control" placeholder="https://..." id="link"
+                                        type="url" name="link" value="{{ $news->link }}" />
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -68,6 +80,7 @@
                                     <textarea class="form-control" id="description" placeholder="Enter your description here..." name="description">{!! $news->description !!}</textarea>
                                 </div>
                             </div>
+
                             <div class="row mt-4">
                                 <div class="col">
                                     <x-primary-button href="#" class="btn btn-primary">Save</x-primary-button>
@@ -93,5 +106,8 @@
             ],
             height: '100px',
         });
+        // Initialize Tagify on the input field with ID "tags"
+        var input = document.getElementById('tags');
+        new Tagify(input);
     </script>
 @endpush

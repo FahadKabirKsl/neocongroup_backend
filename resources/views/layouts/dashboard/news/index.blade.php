@@ -39,18 +39,31 @@
                             <table class="table display" id="basic-1" style="font-size:12px">
                                 <thead>
                                     <tr>
-                                        <th>Type</th>
+                                        <th>Tags</th>
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Title</th>
                                         <th>Description</th>
+                                        <th>Link</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($news as $paper)
                                         <tr class="clickable-row">
-                                            <td>{{ $paper->type }}</td>
+                                            <td>
+                                                @if ($paper->tags)
+                                                    @php
+                                                        $tags = json_decode($paper->tags);
+                                                    @endphp
+                                                    @if ($tags)
+                                                        @foreach ($tags as $tag)
+                                                            <button type="button" style="font-size:12px"
+                                                                class="btn btn-outline-danger my-1">{{ $tag->value }}</button>
+                                                        @endforeach
+                                                    @endif
+                                                @endif
+                                            </td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $paper->image) }}" alt="News Image"
                                                     width="90">
@@ -66,6 +79,7 @@
                                                     <span id="collapseLinkText{{ $paper->id }}">See More</span>
                                                 </div>
                                             </td>
+                                            <td>{{ $paper->link }}</td>
                                             <td>
                                                 <div class="d-flex">
                                                     <div>
