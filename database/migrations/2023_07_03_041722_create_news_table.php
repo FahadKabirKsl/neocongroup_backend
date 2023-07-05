@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['all', 'innovations', 'technologies', 'gateway']);
+            $table->string('tags')->nullable();
             $table->string('image');
             $table->string('name');
             $table->text('title');
             $table->longText('description');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

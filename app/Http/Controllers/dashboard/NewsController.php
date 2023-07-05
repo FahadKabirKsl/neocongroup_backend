@@ -23,7 +23,6 @@ class NewsController extends Controller
     {
         $news = $request->validate(
             [
-                'type' => 'required|in:all,innovation,technologies,gateway',
                 'name' => 'required|string',
                 'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             ]
@@ -35,11 +34,13 @@ class NewsController extends Controller
         }
         $news = News::create(
             [
-                'type' => $request->type,
+                'tags' => $request->tags,
                 'image' => $image_path,
                 'name' => $request->name,
                 'title' => $request->title,
-                'description' => $request->description
+                'description' => $request->description,
+                'link' => $request->link
+
             ]
         );
         session()->flash('create', 'News Created Successfully');
@@ -53,10 +54,11 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $news = News::findOrFail($id);
-        $news->type = $request->input('type');
+        $news->tags = $request->input('tags');
         $news->name = $request->input('name');
         $news->title = $request->input('title');
         $news->description = $request->input('description');
+        $news->link = $request->input('link');
 
         if ($request->hasFile('image')) {
             if ($news->image) {

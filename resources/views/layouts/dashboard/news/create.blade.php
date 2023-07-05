@@ -20,17 +20,9 @@
                                 @csrf
                                 <div class="row mb-4">
                                     <div class="col">
-                                        <x-input-label class="form-label" for="type" :value="__('Type')" />
-                                        <span class="text-danger">(*)</span>
-                                        <select class="form-control btn btn-orange" id="type" name="type" required>
-                                            <option class="select-placeholder btn btn-orange" value="" disabled
-                                                selected>Select Type
-                                            </option>
-                                            <option value="all">all</option>
-                                            <option value="innovations">innovations</option>
-                                            <option value="technologies">technologies</option>
-                                            <option value="gateway">gateway</option>
-                                        </select>
+                                        <x-input-label class="form-label" for="tags" :value="__('Tags')" />
+                                        <input class="form-control" id="tags" name="tags"
+                                            placeholder="Enter tags here..." value="{{ old('tags') }}" />
                                     </div>
                                 </div>
                                 <div class="row mb-4">
@@ -48,11 +40,16 @@
                                     </div>
                                 </div>
                                 <div class="row mb-4">
-                                    <div class="col">
+                                    <div class="col-sm-6">
                                         <x-input-label class="form-label" for="title" :value="__('Title')" />
                                         <span class="text-danger">(*)</span>
                                         <x-text-input class="form-control" id="title" type="text"
                                             placeholder="Enter your title here..." required="" name="title" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <x-input-label class="form-label" for="link" :value="__('Link')" />
+                                        <x-text-input class="form-control" placeholder="https://..." id="link"
+                                            type="url" name="link" />
                                     </div>
                                 </div>
                                 <div class="row mb-4">
@@ -88,5 +85,8 @@
                 ],
                 height: '100px',
             });
+            // Initialize Tagify on the input field with ID "tags"
+            var input = document.getElementById('tags');
+            new Tagify(input);
         </script>
     @endpush
